@@ -180,50 +180,6 @@
   </entry>
   
   <entry>
-    <title>PAT-Basic 1010. 一元多项式求导 (25)</title>
-    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1010/"/>
-    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1010/</id>
-    <published>2017-03-22T16:00:00.000Z</published>
-    <updated>2017-08-13T01:39:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>设计函数求一元多项式的导数。（注：x^n（n为整数）的一阶导数为n*x^(n-1)。）</p><a id="more"></a><p><strong>输入格式：</strong>以指数递降方式输入多项式非零项系数和指数（绝对值均为不超过1000的整数）。数字间以空格分隔。</p><p><strong>输出格式：</strong>以与输入相同的格式输出导数多项式非零项的系数和指数。数字间以空格分隔，但结尾不能有多余空格。注意“零多项式”的指数和系数都是0，但是表示为“0 0”。</p><p><strong>输入样例：</strong></p><p>3 4 -5 2 6 1 -2 0</p><p><strong>输出样例：</strong></p><p>12 3 -10 1 6 0</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, e, flag = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;e) != EOF) &#123;</span><br><span class="line">    <span class="keyword">if</span>(n*e)&#123;</span><br><span class="line">      <span class="keyword">if</span>(flag)</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">         flag = <span class="number">1</span>;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"%d %d"</span>, n*e, e<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!flag)</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"0 0"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;设计函数求一元多项式的导数。（注：x^n（n为整数）的一阶导数为n*x^(n-1)。）&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PAT-Basic 1011. A+B和C (15)</title>
-    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/"/>
-    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/</id>
-    <published>2017-03-22T16:00:00.000Z</published>
-    <updated>2017-08-13T01:39:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。</p><a id="more"></a><p><strong>输入格式：</strong></p><p>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。</p><p><strong>输出格式：</strong></p><p>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。</p><p><strong>输入样例：</strong></p><p>4<br><br>1 2 3<br><br>2 3 4<br><br>2147483647 0 2147483646<br><br>0 -2147483648 -2147483647<br></p><p><strong>输出样例：</strong></p><p>Case #1: false<br><br>Case #2: true<br><br>Case #3: true<br><br>Case #4: false<br></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,n;</span><br><span class="line">  <span class="keyword">long</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%ld%ld%ld"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    <span class="keyword">if</span>(a+b&gt;c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: false\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
-    
-  </entry>
-  
-  <entry>
     <title>LeetCode 2. Add Two Numbers</title>
     <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/"/>
     <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/</id>
@@ -272,6 +228,73 @@
     
     
       <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PAT-Basic 1011. A+B和C (15)</title>
+    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/"/>
+    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/</id>
+    <published>2017-03-22T16:00:00.000Z</published>
+    <updated>2017-08-13T01:39:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。</p><a id="more"></a><p><strong>输入格式：</strong></p><p>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。</p><p><strong>输出格式：</strong></p><p>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。</p><p><strong>输入样例：</strong></p><p>4<br><br>1 2 3<br><br>2 3 4<br><br>2147483647 0 2147483646<br><br>0 -2147483648 -2147483647<br></p><p><strong>输出样例：</strong></p><p>Case #1: false<br><br>Case #2: true<br><br>Case #3: true<br><br>Case #4: false<br></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,n;</span><br><span class="line">  <span class="keyword">long</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%ld%ld%ld"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    <span class="keyword">if</span>(a+b&gt;c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: false\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PAT-Basic 1010. 一元多项式求导 (25)</title>
+    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1010/"/>
+    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1010/</id>
+    <published>2017-03-22T16:00:00.000Z</published>
+    <updated>2017-08-13T01:39:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>设计函数求一元多项式的导数。（注：x^n（n为整数）的一阶导数为n*x^(n-1)。）</p><a id="more"></a><p><strong>输入格式：</strong>以指数递降方式输入多项式非零项系数和指数（绝对值均为不超过1000的整数）。数字间以空格分隔。</p><p><strong>输出格式：</strong>以与输入相同的格式输出导数多项式非零项的系数和指数。数字间以空格分隔，但结尾不能有多余空格。注意“零多项式”的指数和系数都是0，但是表示为“0 0”。</p><p><strong>输入样例：</strong></p><p>3 4 -5 2 6 1 -2 0</p><p><strong>输出样例：</strong></p><p>12 3 -10 1 6 0</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, e, flag = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;e) != EOF) &#123;</span><br><span class="line">    <span class="keyword">if</span>(n*e)&#123;</span><br><span class="line">      <span class="keyword">if</span>(flag)</span><br><span class="line">         <span class="built_in">printf</span>(<span class="string">" "</span>);</span><br><span class="line">      <span class="keyword">else</span></span><br><span class="line">         flag = <span class="number">1</span>;</span><br><span class="line">      <span class="built_in">printf</span>(<span class="string">"%d %d"</span>, n*e, e<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!flag)</span><br><span class="line">     <span class="built_in">printf</span>(<span class="string">"0 0"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;设计函数求一元多项式的导数。（注：x^n（n为整数）的一阶导数为n*x^(n-1)。）&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 1. Two Sum</title>
+    <link href="https://lrtwjhs.github.io/2016/08/05/2016-08-05-leetcode-1/"/>
+    <id>https://lrtwjhs.github.io/2016/08/05/2016-08-05-leetcode-1/</id>
+    <published>2016-08-04T16:00:00.000Z</published>
+    <updated>2017-08-13T01:39:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p><p>You may assume that each input would have <strong>exactly</strong> one solution.</p><a id="more"></a><p><strong>Example:</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>], target = <span class="number">9</span>,</span><br><span class="line"></span><br><span class="line">Because nums[<span class="number">0</span>] + nums[<span class="number">1</span>] = <span class="number">2</span> + <span class="number">7</span> = <span class="number">9</span>,</span><br><span class="line"><span class="keyword">return</span> [<span class="number">0</span>, <span class="number">1</span>].</span><br></pre></td></tr></table></figure></p><p><br></p><p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">        HashMap&lt;Integer, Integer&gt; m = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">            m.put(target - numbers[i], i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line"></span><br><span class="line">            Integer v = m.get(numbers[i]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(v != <span class="keyword">null</span> &amp;&amp; v != i)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i + <span class="number">1</span>, v + <span class="number">1</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given an array of integers, return &lt;strong&gt;indices&lt;/strong&gt; of the two numbers such that they add up to a specific target.&lt;/p&gt;
+&lt;p&gt;You may assume that each input would have &lt;strong&gt;exactly&lt;/strong&gt; one solution.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://lrtwjhs.github.io/tags/LeetCode/"/>
     
   </entry>
   
@@ -342,51 +365,6 @@
   </entry>
   
   <entry>
-    <title>LeetCode 1. Two Sum</title>
-    <link href="https://lrtwjhs.github.io/2016/08/05/2016-08-05-leetcode-1/"/>
-    <id>https://lrtwjhs.github.io/2016/08/05/2016-08-05-leetcode-1/</id>
-    <published>2016-08-04T16:00:00.000Z</published>
-    <updated>2017-08-13T01:39:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p><p>You may assume that each input would have <strong>exactly</strong> one solution.</p><a id="more"></a><p><strong>Example:</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>], target = <span class="number">9</span>,</span><br><span class="line"></span><br><span class="line">Because nums[<span class="number">0</span>] + nums[<span class="number">1</span>] = <span class="number">2</span> + <span class="number">7</span> = <span class="number">9</span>,</span><br><span class="line"><span class="keyword">return</span> [<span class="number">0</span>, <span class="number">1</span>].</span><br></pre></td></tr></table></figure></p><p><br></p><p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">        HashMap&lt;Integer, Integer&gt; m = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">            m.put(target - numbers[i], i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line"></span><br><span class="line">            Integer v = m.get(numbers[i]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(v != <span class="keyword">null</span> &amp;&amp; v != i)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i + <span class="number">1</span>, v + <span class="number">1</span>&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Given an array of integers, return &lt;strong&gt;indices&lt;/strong&gt; of the two numbers such that they add up to a specific target.&lt;/p&gt;
-&lt;p&gt;You may assume that each input would have &lt;strong&gt;exactly&lt;/strong&gt; one solution.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://lrtwjhs.github.io/tags/LeetCode/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PAT-Basic 1006. 换个格式输出整数 (15)</title>
-    <link href="https://lrtwjhs.github.io/2016/08/04/2016-08-04-pat-basic-1006/"/>
-    <id>https://lrtwjhs.github.io/2016/08/04/2016-08-04-pat-basic-1006/</id>
-    <published>2016-08-03T16:00:00.000Z</published>
-    <updated>2017-08-13T01:39:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>让我们用字母B来表示“百”、字母S表示“十”，用“12…n”来表示个位数字n（&lt;10），换个格式来输出任一个不超过3位的正整数。例如234应该被输出为BBSSS1234，因为它有2个“百”、3个“十”、以及个位的4。</p><a id="more"></a><p><strong>输入格式：</strong>每个测试输入包含1个测试用例，给出正整数n（&lt;1000）。</p><p><strong>输出格式：</strong>每个测试用例的输出占一行，用规定的格式输出n。</p><p><strong>输入样例1：</strong></p><p>234</p><p><strong>输出样例1：</strong></p><p>BBSSS1234</p><p><strong>输入样例2：</strong></p><p>23</p><p><strong>输出样例2：</strong></p><p>SS123</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> input;</span><br><span class="line">        <span class="keyword">int</span> b,s,g,i;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;input);</span><br><span class="line">        g = input % <span class="number">10</span>;</span><br><span class="line">        s = input / <span class="number">10</span> % <span class="number">10</span>;</span><br><span class="line">        b = input /<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; b; i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"B"</span>);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; s; i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"S"</span>);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= g; i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"%d"</span>, i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;让我们用字母B来表示“百”、字母S表示“十”，用“12…n”来表示个位数字n（&amp;lt;10），换个格式来输出任一个不超过3位的正整数。例如234应该被输出为BBSSS1234，因为它有2个“百”、3个“十”、以及个位的4。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PAT-Basic 1007. 素数对猜想 (20)</title>
     <link href="https://lrtwjhs.github.io/2016/08/04/2016-08-04-pat-basic-1007/"/>
     <id>https://lrtwjhs.github.io/2016/08/04/2016-08-04-pat-basic-1007/</id>
@@ -423,6 +401,28 @@
       &lt;p&gt;卡拉兹(Callatz)猜想已经在1001中给出了描述。在这个题目里，情况稍微有些复杂。&lt;/p&gt;
 &lt;p&gt;当我们验证卡拉兹猜想的时候，为了避免重复计算，可以记录下递推过程中遇到的每一个数。例如对n=3进行验证的时候，我们需要计算3、5、8、4、2、1，则当我们对n=5、8、4、2进行验证的时候，就可以直接判定卡拉兹猜想的真伪，而不需要重复计算，因为这4个数已经在验证3的时候遇到过了，我们称5、8、4、2是被3“覆盖”的数。我们称一个数列中的某个数n为“关键数”，如果n不能被数列中的其他数字所覆盖。&lt;/p&gt;
 &lt;p&gt;现在给定一系列待验证的数字，我们只需要验证其中的几个关键数，就可以不必再重复验证余下的数字。你的任务就是找出这些关键数字，并按从大到小的顺序输出它们。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PAT-Basic 1006. 换个格式输出整数 (15)</title>
+    <link href="https://lrtwjhs.github.io/2016/08/04/2016-08-04-pat-basic-1006/"/>
+    <id>https://lrtwjhs.github.io/2016/08/04/2016-08-04-pat-basic-1006/</id>
+    <published>2016-08-03T16:00:00.000Z</published>
+    <updated>2017-08-13T01:39:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>让我们用字母B来表示“百”、字母S表示“十”，用“12…n”来表示个位数字n（&lt;10），换个格式来输出任一个不超过3位的正整数。例如234应该被输出为BBSSS1234，因为它有2个“百”、3个“十”、以及个位的4。</p><a id="more"></a><p><strong>输入格式：</strong>每个测试输入包含1个测试用例，给出正整数n（&lt;1000）。</p><p><strong>输出格式：</strong>每个测试用例的输出占一行，用规定的格式输出n。</p><p><strong>输入样例1：</strong></p><p>234</p><p><strong>输出样例1：</strong></p><p>BBSSS1234</p><p><strong>输入样例2：</strong></p><p>23</p><p><strong>输出样例2：</strong></p><p>SS123</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> input;</span><br><span class="line">        <span class="keyword">int</span> b,s,g,i;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;input);</span><br><span class="line">        g = input % <span class="number">10</span>;</span><br><span class="line">        s = input / <span class="number">10</span> % <span class="number">10</span>;</span><br><span class="line">        b = input /<span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; b; i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"B"</span>);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; s; i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"S"</span>);</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= g; i++)</span><br><span class="line">          <span class="built_in">printf</span>(<span class="string">"%d"</span>, i);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;让我们用字母B来表示“百”、字母S表示“十”，用“12…n”来表示个位数字n（&amp;lt;10），换个格式来输出任一个不超过3位的正整数。例如234应该被输出为BBSSS1234，因为它有2个“百”、3个“十”、以及个位的4。&lt;/p&gt;
     
     </summary>
     
