@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lrtwjhs.github.io/"/>
-  <updated>2017-11-27T14:46:53.000Z</updated>
+  <updated>2020-11-10T13:16:39.676Z</updated>
   <id>https://lrtwjhs.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 7. Reverse Integer</title>
+    <link href="https://lrtwjhs.github.io/2020/11/10/2020-11-10-leetcode-7/"/>
+    <id>https://lrtwjhs.github.io/2020/11/10/2020-11-10-leetcode-7/</id>
+    <published>2020-11-09T16:00:00.000Z</published>
+    <updated>2020-11-10T13:16:39.676Z</updated>
+    
+    <content type="html"><![CDATA[<p>Given a 32-bit signed integer, reverse digits of an integer.</p><p><strong>Note:</strong><br>Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p><a id="more"></a><p><strong>Example 1:</strong><br>Input: x = 123<br>Output: 321</p><p><strong>Example 2:</strong><br>Input: x = -123<br>Output: -321</p><p><strong>Example 3:</strong><br>Input: x = 120<br>Output: 21</p><p><strong>Example 4:</strong><br>Input: x = 0<br>Output: 0</p><p><strong>Constraints:</strong><br>-2^31 &lt;= x &lt;= 2^31 - 1</p><p><strong>思路:</strong><br>直接循环读出末尾数据，负数也可以同样处理，如果溢出32位的话就返回0。</p><p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x != <span class="number">0</span>) &#123;</span><br><span class="line">            ret = ret * <span class="number">10</span> + x%<span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(ret &gt; Integer.MAX_VALUE || ret &lt; Integer.MIN_VALUE) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Given a 32-bit signed integer, reverse digits of an integer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt;&lt;br&gt;Assume we are dealing with an environment that could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://lrtwjhs.github.io/tags/LeetCode/"/>
+    
+      <category term="LeetCode-Easy" scheme="https://lrtwjhs.github.io/tags/LeetCode-Easy/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP状态码</title>
@@ -42,6 +67,29 @@
   </entry>
   
   <entry>
+    <title>Mac 终端里神秘的 bogon 及解决方法</title>
+    <link href="https://lrtwjhs.github.io/2017/08/20/2017-08-20-mac-bogon-solution/"/>
+    <id>https://lrtwjhs.github.io/2017/08/20/2017-08-20-mac-bogon-solution/</id>
+    <published>2017-08-19T16:00:00.000Z</published>
+    <updated>2017-08-20T13:03:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Mac 下的终端经常有时候前面的计算机名会错误的显示成 bogon,这个单词是虚拟、虚伪的意思。这是因为终端会先向 DNS服务器 请求查询当前 IP 的反向域名解析的结果，如果查询不到再显示我们设置的计算机名。</p><p>而由于我们的 DNS服务器 错误地将保留地址反向的 NS 查询结果返回了 bogon。其中 bogon 本应该用来指虚假的 IP 地址，而非保留 IP 地址。因此就出现了会时不时地打印 bogon 这种奇怪名字作为计算机名的现象了。那么如何让终端只显示我们想要的计算机名而不总是从 DNS 返回结果呢？</p><a id="more"></a><p>方法有二：</p><p>一. 将DNS设置为其他的DNS服务器，如Google的DNS服务器地址  8.8.8.8</p><p>二. 在终端中执行以下命令即可（需要输入一次管理员密码)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo hostname your-desired-host-name</span><br><span class="line">sudo scutil --set LocalHostName $(hostname)</span><br><span class="line">sudo scutil --set HostName $(hostname)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Mac 下的终端经常有时候前面的计算机名会错误的显示成 bogon,这个单词是虚拟、虚伪的意思。这是因为终端会先向 DNS服务器 请求查询当前 IP 的反向域名解析的结果，如果查询不到再显示我们设置的计算机名。&lt;/p&gt;
+&lt;p&gt;而由于我们的 DNS服务器 错误地将保留地址反向的 NS 查询结果返回了 bogon。其中 bogon 本应该用来指虚假的 IP 地址，而非保留 IP 地址。因此就出现了会时不时地打印 bogon 这种奇怪名字作为计算机名的现象了。那么如何让终端只显示我们想要的计算机名而不总是从 DNS 返回结果呢？&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="操作系统" scheme="https://lrtwjhs.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    
+    
+      <category term="Mac" scheme="https://lrtwjhs.github.io/tags/Mac/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JavaScript学习笔记（三）之 Srting操作方法</title>
     <link href="https://lrtwjhs.github.io/2017/08/20/2017-08-20-javascript-string/"/>
     <id>https://lrtwjhs.github.io/2017/08/20/2017-08-20-javascript-string/</id>
@@ -65,25 +113,24 @@
   </entry>
   
   <entry>
-    <title>Mac 终端里神秘的 bogon 及解决方法</title>
-    <link href="https://lrtwjhs.github.io/2017/08/20/2017-08-20-mac-bogon-solution/"/>
-    <id>https://lrtwjhs.github.io/2017/08/20/2017-08-20-mac-bogon-solution/</id>
-    <published>2017-08-19T16:00:00.000Z</published>
-    <updated>2017-08-20T13:03:31.000Z</updated>
+    <title>开源许可协议GPL、BSD、MIT、Mozilla、Apache和LGPL的区别</title>
+    <link href="https://lrtwjhs.github.io/2017/08/17/2017-08-17-open-source-license/"/>
+    <id>https://lrtwjhs.github.io/2017/08/17/2017-08-17-open-source-license/</id>
+    <published>2017-08-16T16:00:00.000Z</published>
+    <updated>2019-01-14T12:49:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Mac 下的终端经常有时候前面的计算机名会错误的显示成 bogon,这个单词是虚拟、虚伪的意思。这是因为终端会先向 DNS服务器 请求查询当前 IP 的反向域名解析的结果，如果查询不到再显示我们设置的计算机名。</p><p>而由于我们的 DNS服务器 错误地将保留地址反向的 NS 查询结果返回了 bogon。其中 bogon 本应该用来指虚假的 IP 地址，而非保留 IP 地址。因此就出现了会时不时地打印 bogon 这种奇怪名字作为计算机名的现象了。那么如何让终端只显示我们想要的计算机名而不总是从 DNS 返回结果呢？</p><a id="more"></a><p>方法有二：</p><p>一. 将DNS设置为其他的DNS服务器，如Google的DNS服务器地址  8.8.8.8</p><p>二. 在终端中执行以下命令即可（需要输入一次管理员密码)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo hostname your-desired-host-name</span><br><span class="line">sudo scutil --set LocalHostName $(hostname)</span><br><span class="line">sudo scutil --set HostName $(hostname)</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>首先借用一张相当直观清晰的图来划分各种协议：开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别</p><a id="more"></a><p><img src="https://lrtwjhs.github.io/img/blog_post_20161209_01.jpg" alt="license\_img"></p><p>以下是上述协议的简单介绍：</p><h3 id="1-BSD开源协议"><a href="#1-BSD开源协议" class="headerlink" title="1. BSD开源协议"></a>1. BSD开源协议</h3><p>BSD开源协议是一个给于使用者很大自由的协议。基本上使用者可以”为所欲为”,可以自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布。</p><p>但”为所欲为”的前提当你发布使用了BSD协议的代码，或则以BSD协议代码为基础做二次开发自己的产品时，需要满足三个条件：</p><ul><li>如果再发布的产品中包含源代码，则在源代码中必须带有原来代码中的BSD协议.</li><li>如果再发布的只是二进制类库/软件，则需要在类库/软件的文档和版权声明中包含原来代码中的BSD协议.</li><li>不可以用开源代码的作者/机构名字和原来产品的名字做市场推广.</li></ul><p>BSD 代码鼓励代码共享，但需要尊重代码作者的著作权。BSD由于允许使用者修改和重新发布代码，也允许使用或在BSD代码上开发商业软件发布和销售，因此是对商业集成很友好的协议。而很多的公司企业在选用开源产品的时候都首选BSD协议，因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。</p><h3 id="2-Apache-Licence-2-0"><a href="#2-Apache-Licence-2-0" class="headerlink" title="2. Apache Licence 2.0"></a>2. Apache Licence 2.0</h3><p>Apache Licence是著名的非盈利开源组织Apache采用的协议。该协议和BSD类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）。需要满足的条件也和BSD类似：</p><ul><li>需要给代码的用户一份Apache Licence.</li><li>如果你修改了代码，需要再被修改的文件中说明.</li><li>在延伸的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明.</li><li>如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改.</li></ul><p>Apache Licence也是对商业应用友好的许可。使用者也可以在需要的时候修改代码来满足需要并作为开源或商业产品发布/销售。</p><h3 id="3-GPL"><a href="#3-GPL" class="headerlink" title="3. GPL"></a>3. GPL</h3><p>我们很熟悉的Linux就是采用了GPL。GPL协议和BSD, Apache Licence等鼓励代码重用的许可很不一样。GPL的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。这也就是为什么我们能用免费的各种linux，包括商业公司的linux和linux上各种各样的由个人，组织，以及商业软件公司开发的免费软件了。</p><p>GPL协议的主要内容是只要在一个软件中使用(”使用”指类库引用，修改后的代码或者衍生代码)GPL 协议的产品，则该软件产品必须也采用GPL协议，既必须也是开源和免费。这就是所谓的”传染性”。GPL协议的产品作为一个单独的产品使用没有任何问题，还可以享受免费的优势。</p><p>由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。</p><p>其它细节如再发布的时候需要伴随GPL协议等和BSD/Apache等类似。</p><h3 id="4-LGPL"><a href="#4-LGPL" class="headerlink" title="4. LGPL"></a>4. LGPL</h3><p>LGPL是GPL的一个为主要为类库使用设计的开源协议。和GPL要求任何使用/修改/衍生之GPL类库的的软件必须采用GPL协议不同。LGPL 允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。</p><p>但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。因此LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。</p><p>GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品。</p><h3 id="5-MIT"><a href="#5-MIT" class="headerlink" title="5. MIT"></a>5. MIT</h3><p>MPL是The Mozilla Public License的简写，是1998年初Netscape的 Mozilla小组为其开源软件项目设计的软件许可证。MPL许可证出现的最重要原因就是，Netscape公司认为GPL许可证没有很好地平衡开发者对源代码的需求和他们利用源代码获得的利益。同著名的GPL许可证和BSD许可证相比，MPL在许多权利与义务的约定方面与它们相同（因为都是符合OSIA 认定的开源软件许可证）。但是，相比而言MPL还有以下几个显著的不同之处:</p><ul><li>MPL虽然要求对于经MPL许可证发布的源代码的修改也要以MPL许可证的方式再许可出来，以保证其他人可以在MPL的条款下共享源代码。但是，在MPL 许可证中对“发布”的定义是“以源代码方式发布的文件”，这就意味着MPL允许一个企业在自己已有的源代码库上加一个接口，除了接口程序的源代码以MPL 许可证的形式对外许可外，源代码库中的源代码就可以不用MPL许可证的方式强制对外许可。这些，就为借鉴别人的源代码用做自己商业软件开发的行为留了一个豁口.</li><li>MPL许可证第三条第7款中允许被许可人将经过MPL许可证获得的源代码同自己其他类型的代码混合得到自己的软件程序.</li><li>对软件专利的态度，MPL许可证不像GPL许可证那样明确表示反对软件专利，但是却明确要求源代码的提供者不能提供已经受专利保护的源代码（除非他本人是专利权人，并书面向公众免费许可这些源代码），也不能在将这些源代码以开放源代码许可证形式许可后再去申请与这些源代码有关的专利.</li><li>对源代码的定义，而在MPL（1.1版本）许可证中，对源代码的定义是:“源代码指的是对作品进行修改最优先择取的形式，它包括:所有模块的所有源程序，加上有关的接口的定义，加上控制可执行作品的安装和编译的‘原本’（原文为‘Script’），或者不是与初始源代码显著不同的源代码就是被源代码贡献者选择的从公共领域可以得到的程序代码.</li><li>MPL许可证第3条有专门的一款是关于对源代码修改进行描述的规定，就是要求所有再发布者都得有一个专门的文件就对源代码程序修改的时间和修改的方式有描述.</li></ul><blockquote><p>本文系转载<br>原文作者：<a href="http://www.geek-workshop.com/home.php?mod=space&amp;uid=2759" target="_blank" rel="external">liamjeal</a><br>原文地址：<a href="http://www.geek-workshop.com/thread-1860-1-1.html" target="_blank" rel="external">开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别</a></p></blockquote>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Mac 下的终端经常有时候前面的计算机名会错误的显示成 bogon,这个单词是虚拟、虚伪的意思。这是因为终端会先向 DNS服务器 请求查询当前 IP 的反向域名解析的结果，如果查询不到再显示我们设置的计算机名。&lt;/p&gt;
-&lt;p&gt;而由于我们的 DNS服务器 错误地将保留地址反向的 NS 查询结果返回了 bogon。其中 bogon 本应该用来指虚假的 IP 地址，而非保留 IP 地址。因此就出现了会时不时地打印 bogon 这种奇怪名字作为计算机名的现象了。那么如何让终端只显示我们想要的计算机名而不总是从 DNS 返回结果呢？&lt;/p&gt;
+      &lt;p&gt;首先借用一张相当直观清晰的图来划分各种协议：开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别&lt;/p&gt;
     
     </summary>
     
-      <category term="操作系统" scheme="https://lrtwjhs.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+      <category term="协议" scheme="https://lrtwjhs.github.io/categories/%E5%8D%8F%E8%AE%AE/"/>
     
     
-      <category term="Mac" scheme="https://lrtwjhs.github.io/tags/Mac/"/>
+      <category term="科普知识" scheme="https://lrtwjhs.github.io/tags/%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
@@ -136,28 +183,6 @@
   </entry>
   
   <entry>
-    <title>开源许可协议GPL、BSD、MIT、Mozilla、Apache和LGPL的区别</title>
-    <link href="https://lrtwjhs.github.io/2017/08/17/2017-08-17-open-source-license/"/>
-    <id>https://lrtwjhs.github.io/2017/08/17/2017-08-17-open-source-license/</id>
-    <published>2017-08-16T16:00:00.000Z</published>
-    <updated>2019-01-14T12:49:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先借用一张相当直观清晰的图来划分各种协议：开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别</p><a id="more"></a><p><img src="https://lrtwjhs.github.io/img/blog_post_20161209_01.jpg" alt="license\_img"></p><p>以下是上述协议的简单介绍：</p><h3 id="1-BSD开源协议"><a href="#1-BSD开源协议" class="headerlink" title="1. BSD开源协议"></a>1. BSD开源协议</h3><p>BSD开源协议是一个给于使用者很大自由的协议。基本上使用者可以”为所欲为”,可以自由的使用，修改源代码，也可以将修改后的代码作为开源或者专有软件再发布。</p><p>但”为所欲为”的前提当你发布使用了BSD协议的代码，或则以BSD协议代码为基础做二次开发自己的产品时，需要满足三个条件：</p><ul><li>如果再发布的产品中包含源代码，则在源代码中必须带有原来代码中的BSD协议.</li><li>如果再发布的只是二进制类库/软件，则需要在类库/软件的文档和版权声明中包含原来代码中的BSD协议.</li><li>不可以用开源代码的作者/机构名字和原来产品的名字做市场推广.</li></ul><p>BSD 代码鼓励代码共享，但需要尊重代码作者的著作权。BSD由于允许使用者修改和重新发布代码，也允许使用或在BSD代码上开发商业软件发布和销售，因此是对商业集成很友好的协议。而很多的公司企业在选用开源产品的时候都首选BSD协议，因为可以完全控制这些第三方的代码，在必要的时候可以修改或者二次开发。</p><h3 id="2-Apache-Licence-2-0"><a href="#2-Apache-Licence-2-0" class="headerlink" title="2. Apache Licence 2.0"></a>2. Apache Licence 2.0</h3><p>Apache Licence是著名的非盈利开源组织Apache采用的协议。该协议和BSD类似，同样鼓励代码共享和尊重原作者的著作权，同样允许代码修改，再发布（作为开源或商业软件）。需要满足的条件也和BSD类似：</p><ul><li>需要给代码的用户一份Apache Licence.</li><li>如果你修改了代码，需要再被修改的文件中说明.</li><li>在延伸的代码中（修改和有源代码衍生的代码中）需要带有原来代码中的协议，商标，专利声明和其他原来作者规定需要包含的说明.</li><li>如果再发布的产品中包含一个Notice文件，则在Notice文件中需要带有Apache Licence。你可以在Notice中增加自己的许可，但不可以表现为对Apache Licence构成更改.</li></ul><p>Apache Licence也是对商业应用友好的许可。使用者也可以在需要的时候修改代码来满足需要并作为开源或商业产品发布/销售。</p><h3 id="3-GPL"><a href="#3-GPL" class="headerlink" title="3. GPL"></a>3. GPL</h3><p>我们很熟悉的Linux就是采用了GPL。GPL协议和BSD, Apache Licence等鼓励代码重用的许可很不一样。GPL的出发点是代码的开源/免费使用和引用/修改/衍生代码的开源/免费使用，但不允许修改后和衍生的代码做为闭源的商业软件发布和销售。这也就是为什么我们能用免费的各种linux，包括商业公司的linux和linux上各种各样的由个人，组织，以及商业软件公司开发的免费软件了。</p><p>GPL协议的主要内容是只要在一个软件中使用(”使用”指类库引用，修改后的代码或者衍生代码)GPL 协议的产品，则该软件产品必须也采用GPL协议，既必须也是开源和免费。这就是所谓的”传染性”。GPL协议的产品作为一个单独的产品使用没有任何问题，还可以享受免费的优势。</p><p>由于GPL严格要求使用了GPL类库的软件产品必须使用GPL协议，对于使用GPL协议的开源代码，商业软件或者对代码有保密要求的部门就不适合集成/采用作为类库和二次开发的基础。</p><p>其它细节如再发布的时候需要伴随GPL协议等和BSD/Apache等类似。</p><h3 id="4-LGPL"><a href="#4-LGPL" class="headerlink" title="4. LGPL"></a>4. LGPL</h3><p>LGPL是GPL的一个为主要为类库使用设计的开源协议。和GPL要求任何使用/修改/衍生之GPL类库的的软件必须采用GPL协议不同。LGPL 允许商业软件通过类库引用(link)方式使用LGPL类库而不需要开源商业软件的代码。这使得采用LGPL协议的开源代码可以被商业软件作为类库引用并发布和销售。</p><p>但是如果修改LGPL协议的代码或者衍生，则所有修改的代码，涉及修改部分的额外代码和衍生的代码都必须采用LGPL协议。因此LGPL协议的开源代码很适合作为第三方类库被商业软件引用，但不适合希望以LGPL协议代码为基础，通过修改和衍生的方式做二次开发的商业软件采用。</p><p>GPL/LGPL都保障原作者的知识产权，避免有人利用开源代码复制并开发类似的产品。</p><h3 id="5-MIT"><a href="#5-MIT" class="headerlink" title="5. MIT"></a>5. MIT</h3><p>MPL是The Mozilla Public License的简写，是1998年初Netscape的 Mozilla小组为其开源软件项目设计的软件许可证。MPL许可证出现的最重要原因就是，Netscape公司认为GPL许可证没有很好地平衡开发者对源代码的需求和他们利用源代码获得的利益。同著名的GPL许可证和BSD许可证相比，MPL在许多权利与义务的约定方面与它们相同（因为都是符合OSIA 认定的开源软件许可证）。但是，相比而言MPL还有以下几个显著的不同之处:</p><ul><li>MPL虽然要求对于经MPL许可证发布的源代码的修改也要以MPL许可证的方式再许可出来，以保证其他人可以在MPL的条款下共享源代码。但是，在MPL 许可证中对“发布”的定义是“以源代码方式发布的文件”，这就意味着MPL允许一个企业在自己已有的源代码库上加一个接口，除了接口程序的源代码以MPL 许可证的形式对外许可外，源代码库中的源代码就可以不用MPL许可证的方式强制对外许可。这些，就为借鉴别人的源代码用做自己商业软件开发的行为留了一个豁口.</li><li>MPL许可证第三条第7款中允许被许可人将经过MPL许可证获得的源代码同自己其他类型的代码混合得到自己的软件程序.</li><li>对软件专利的态度，MPL许可证不像GPL许可证那样明确表示反对软件专利，但是却明确要求源代码的提供者不能提供已经受专利保护的源代码（除非他本人是专利权人，并书面向公众免费许可这些源代码），也不能在将这些源代码以开放源代码许可证形式许可后再去申请与这些源代码有关的专利.</li><li>对源代码的定义，而在MPL（1.1版本）许可证中，对源代码的定义是:“源代码指的是对作品进行修改最优先择取的形式，它包括:所有模块的所有源程序，加上有关的接口的定义，加上控制可执行作品的安装和编译的‘原本’（原文为‘Script’），或者不是与初始源代码显著不同的源代码就是被源代码贡献者选择的从公共领域可以得到的程序代码.</li><li>MPL许可证第3条有专门的一款是关于对源代码修改进行描述的规定，就是要求所有再发布者都得有一个专门的文件就对源代码程序修改的时间和修改的方式有描述.</li></ul><blockquote><p>本文系转载<br>原文作者：<a href="http://www.geek-workshop.com/home.php?mod=space&amp;uid=2759" target="_blank" rel="external">liamjeal</a><br>原文地址：<a href="http://www.geek-workshop.com/thread-1860-1-1.html" target="_blank" rel="external">开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;首先借用一张相当直观清晰的图来划分各种协议：开源许可证GPL、BSD、MIT、Mozilla、Apache和LGPL的区别&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="协议" scheme="https://lrtwjhs.github.io/categories/%E5%8D%8F%E8%AE%AE/"/>
-    
-    
-      <category term="科普知识" scheme="https://lrtwjhs.github.io/tags/%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
     <title>推荐两款很安逸的离线API文档查询工具Dash和Zeal</title>
     <link href="https://lrtwjhs.github.io/2017/08/17/2017-08-17-offline-api-document/"/>
     <id>https://lrtwjhs.github.io/2017/08/17/2017-08-17-offline-api-document/</id>
@@ -176,53 +201,6 @@
     
     
       <category term="科普知识" scheme="https://lrtwjhs.github.io/tags/%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AF%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode 2. Add Two Numbers</title>
-    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/"/>
-    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/</id>
-    <published>2017-03-22T16:00:00.000Z</published>
-    <updated>2020-11-10T12:10:05.499Z</updated>
-    
-    <content type="html"><![CDATA[<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p><p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p><a id="more"></a><p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</p><p><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p><p><strong>思路:</strong><br>将长度较短的链表在末尾补零使得两个连表长度相等，再一个一个元素对其相加（考虑进位）<br>1.获取两个链表所对应的长度<br>2.在较短的链表末尾补零<br>3.对齐相加考虑进位</p><p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode r = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode h = r;</span><br><span class="line">        ListNode beforeend = r;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> &amp;&amp; l2!= <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += l1.val + l2.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode rest;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) rest = l2; <span class="keyword">else</span> rest =l1;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(rest != <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += rest.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            rest = rest.nest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(beforeend.next != <span class="keyword">null</span> &amp;&amp; beforeend.next.val == <span class="number">0</span>) beforeend.next=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;You are given two &lt;strong&gt;non-empty&lt;/strong&gt; linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.&lt;/p&gt;
-&lt;p&gt;You may assume the two numbers do not contain any leading zero, except the number 0 itself.&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://lrtwjhs.github.io/tags/LeetCode/"/>
-    
-      <category term="LeetCode-Medium" scheme="https://lrtwjhs.github.io/tags/LeetCode-Medium/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PAT-Basic 1011. A+B和C (15)</title>
-    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/"/>
-    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/</id>
-    <published>2017-03-22T16:00:00.000Z</published>
-    <updated>2017-08-13T01:39:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。</p><a id="more"></a><p><strong>输入格式：</strong></p><p>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。</p><p><strong>输出格式：</strong></p><p>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。</p><p><strong>输入样例：</strong></p><p>4<br><br>1 2 3<br><br>2 3 4<br><br>2147483647 0 2147483646<br><br>0 -2147483648 -2147483647<br></p><p><strong>输出样例：</strong></p><p>Case #1: false<br><br>Case #2: true<br><br>Case #3: true<br><br>Case #4: false<br></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,n;</span><br><span class="line">  <span class="keyword">long</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%ld%ld%ld"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    <span class="keyword">if</span>(a+b&gt;c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: false\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
     
   </entry>
   
@@ -267,6 +245,53 @@
 &lt;li&gt;A4 = 被5除后余3的数字的平均数，精确到小数点后1位；&lt;/li&gt;
 &lt;li&gt;A5 = 被5除后余4的数字中最大数字。&lt;/li&gt;
 &lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode 2. Add Two Numbers</title>
+    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/"/>
+    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/</id>
+    <published>2017-03-22T16:00:00.000Z</published>
+    <updated>2020-11-10T12:10:05.499Z</updated>
+    
+    <content type="html"><![CDATA[<p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p><p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p><a id="more"></a><p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</p><p><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p><p><strong>思路:</strong><br>将长度较短的链表在末尾补零使得两个连表长度相等，再一个一个元素对其相加（考虑进位）<br>1.获取两个链表所对应的长度<br>2.在较短的链表末尾补零<br>3.对齐相加考虑进位</p><p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode r = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode h = r;</span><br><span class="line">        ListNode beforeend = r;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> &amp;&amp; l2!= <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += l1.val + l2.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode rest;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) rest = l2; <span class="keyword">else</span> rest =l1;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(rest != <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += rest.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            rest = rest.nest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(beforeend.next != <span class="keyword">null</span> &amp;&amp; beforeend.next.val == <span class="number">0</span>) beforeend.next=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;You are given two &lt;strong&gt;non-empty&lt;/strong&gt; linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.&lt;/p&gt;
+&lt;p&gt;You may assume the two numbers do not contain any leading zero, except the number 0 itself.&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://lrtwjhs.github.io/tags/LeetCode/"/>
+    
+      <category term="LeetCode-Medium" scheme="https://lrtwjhs.github.io/tags/LeetCode-Medium/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PAT-Basic 1011. A+B和C (15)</title>
+    <link href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/"/>
+    <id>https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/</id>
+    <published>2017-03-22T16:00:00.000Z</published>
+    <updated>2017-08-13T01:39:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。</p><a id="more"></a><p><strong>输入格式：</strong></p><p>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。</p><p><strong>输出格式：</strong></p><p>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。</p><p><strong>输入样例：</strong></p><p>4<br><br>1 2 3<br><br>2 3 4<br><br>2147483647 0 2147483646<br><br>0 -2147483648 -2147483647<br></p><p><strong>输出样例：</strong></p><p>Case #1: false<br><br>Case #2: true<br><br>Case #3: true<br><br>Case #4: false<br></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,n;</span><br><span class="line">  <span class="keyword">long</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%ld%ld%ld"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    <span class="keyword">if</span>(a+b&gt;c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: false\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。&lt;/p&gt;
     
     </summary>
     
@@ -325,28 +350,6 @@
   </entry>
   
   <entry>
-    <title>PAT-Advanced 1001. A+B Format (20)</title>
-    <link href="https://lrtwjhs.github.io/2016/08/05/2016-08-05-pat-advanced-1001/"/>
-    <id>https://lrtwjhs.github.io/2016/08/05/2016-08-05-pat-advanced-1001/</id>
-    <published>2016-08-04T16:00:00.000Z</published>
-    <updated>2017-08-13T01:39:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p><a id="more"></a><p><strong>Input</strong></p><p>Each input file contains one test case. Each case contains a pair of integers a and b where -1000000 &lt;= a, b &lt;= 1000000. The numbers are separated by a space.</p><p><strong>Output</strong></p><p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p><p><strong>Sample Input</strong></p><p>-1000000 9</p><p><strong>Sample Output</strong></p><p>-999,991</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 1000000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</span><br><span class="line">  c = a + b;</span><br><span class="line">  <span class="keyword">if</span>(c &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    c = -c;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"-"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (c &gt;= MAX) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%03d,%03d\n"</span>,c/MAX,c/<span class="number">1000</span>%<span class="number">1000</span>,c%<span class="number">1000</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c &gt;= <span class="number">1000</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%03d\n"</span>,c/<span class="number">1000</span>,c%<span class="number">1000</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,c);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT-Advanced" scheme="https://lrtwjhs.github.io/tags/PAT-Advanced/"/>
-    
-  </entry>
-  
-  <entry>
     <title>PAT-Basic 1008. 数组元素循环右移问题 (20)</title>
     <link href="https://lrtwjhs.github.io/2016/08/05/2016-08-05-pat-basic-1008/"/>
     <id>https://lrtwjhs.github.io/2016/08/05/2016-08-05-pat-basic-1008/</id>
@@ -365,6 +368,28 @@
     
     
       <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PAT-Advanced 1001. A+B Format (20)</title>
+    <link href="https://lrtwjhs.github.io/2016/08/05/2016-08-05-pat-advanced-1001/"/>
+    <id>https://lrtwjhs.github.io/2016/08/05/2016-08-05-pat-advanced-1001/</id>
+    <published>2016-08-04T16:00:00.000Z</published>
+    <updated>2017-08-13T01:39:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).</p><a id="more"></a><p><strong>Input</strong></p><p>Each input file contains one test case. Each case contains a pair of integers a and b where -1000000 &lt;= a, b &lt;= 1000000. The numbers are separated by a space.</p><p><strong>Output</strong></p><p>For each test case, you should output the sum of a and b in one line. The sum must be written in the standard format.</p><p><strong>Sample Input</strong></p><p>-1000000 9</p><p><strong>Sample Output</strong></p><p>-999,991</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX 1000000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;a,&amp;b);</span><br><span class="line">  c = a + b;</span><br><span class="line">  <span class="keyword">if</span>(c &lt; <span class="number">0</span>)&#123;</span><br><span class="line">    c = -c;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"-"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (c &gt;= MAX) &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%03d,%03d\n"</span>,c/MAX,c/<span class="number">1000</span>%<span class="number">1000</span>,c%<span class="number">1000</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span>(c &gt;= <span class="number">1000</span>)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d,%03d\n"</span>,c/<span class="number">1000</span>,c%<span class="number">1000</span>);</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,c);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Calculate a + b and output the sum in standard format – that is, the digits must be separated into groups of three by commas (unless there are less than four digits).&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="PAT-Advanced" scheme="https://lrtwjhs.github.io/tags/PAT-Advanced/"/>
     
   </entry>
   
@@ -449,35 +474,6 @@
     <summary type="html">
     
       &lt;p&gt;读入n名学生的姓名、学号、成绩，分别输出成绩最高和成绩最低学生的姓名和学号。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://lrtwjhs.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="PAT-Basic" scheme="https://lrtwjhs.github.io/tags/PAT-Basic/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PAT-Basic 1003. 我要通过！(20)</title>
-    <link href="https://lrtwjhs.github.io/2016/08/03/2016-08-03-pat-basic-1003/"/>
-    <id>https://lrtwjhs.github.io/2016/08/03/2016-08-03-pat-basic-1003/</id>
-    <published>2016-08-02T16:00:00.000Z</published>
-    <updated>2017-08-13T01:38:40.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><code>答案正确</code>是自动判题系统给出的最令人欢喜的回复。本题属于PAT的<code>答案正确</code>大派送 —— 只要读入的字符串满足下列条件，系统就输出<code>答案正确</code>，否则输出<code>答案错误</code>。</p><p>得到“答案正确”的条件是：</p><ol><li>字符串中必须仅有P, A, T这三种字符，不可以包含其它字符；</li><li>任意形如 xPATx 的字符串都可以获<code>答案正确</code>，其中 x 或者是空字符串，或者是仅由字母 A 组成的字符串；</li><li>如果 aPbTc 是正确的，那么 aPbATca 也是正确的，其中 a, b, c 均或者是空字符串，或者是仅由字母 A 组成的字符串。</li></ol><p>现在就请你为PAT写一个自动裁判程序，判定哪些字符串是可以获得<code>答案正确</code>的。</p><a id="more"></a><p><strong>输入格式：</strong> 每个测试输入包含1个测试用例。第1行给出一个自然数n (&lt;10)，是需要检测的字符串个数。接下来每个字符串占一行，字符串长度不超过100，且不包含空格。</p><p><strong>输出格式：</strong>每个字符串的检测结果占一行，如果该字符串可以获得<code>答案正确</code>，则输出YES，否则输出NO。</p><p><strong>输入样例：</strong></p><p>8 <br><br>PAT <br><br>PAAT <br><br>AAPATAA <br><br>AAPAATAAAA <br><br>xPATx <br><br>PT <br><br>Whatever <br><br>APAAATAA <br></p><p><strong>输出样例：</strong></p><p>YES <br><br>YES <br><br>YES <br><br>YES <br><br>NO <br><br>NO <br><br>NO <br><br>NO <br></p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span>&#123;</span><br><span class="line"> <span class="comment">/* code */</span></span><br><span class="line"> <span class="keyword">char</span> Input[<span class="number">100</span>];</span><br><span class="line"> <span class="keyword">int</span> pos_T,pos_P,count_P,count_A,count_T;</span><br><span class="line"> <span class="keyword">int</span> i,j,n;</span><br><span class="line"> <span class="built_in">scanf</span>(<span class="string">"%d\n"</span>,&amp;n);</span><br><span class="line">   <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">     gets(Input);</span><br><span class="line">     pos_T = <span class="number">0</span>;</span><br><span class="line">     pos_P = <span class="number">0</span>;</span><br><span class="line">     count_P = <span class="number">0</span>;</span><br><span class="line">     count_A = <span class="number">0</span>;</span><br><span class="line">     count_T = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span>(j = <span class="number">0</span>; j &lt; <span class="built_in">strlen</span>(Input); j++)&#123;</span><br><span class="line">       <span class="keyword">if</span>(Input[j] == <span class="string">'P'</span>)&#123;</span><br><span class="line">         count_P++;</span><br><span class="line">         pos_P = j;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(Input[j] == <span class="string">'A'</span>)&#123;</span><br><span class="line">         count_A++;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(Input[j] == <span class="string">'T'</span>)&#123;</span><br><span class="line">         count_T++;</span><br><span class="line">         pos_T = j;</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(<span class="comment">//判断这个字符串是否只有P,A,T3个字符组成，条件1</span></span><br><span class="line">       count_P + count_A + count_T != <span class="built_in">strlen</span>(Input) ||</span><br><span class="line">       <span class="comment">//中间如果没有字符就不符合条件三</span></span><br><span class="line">       pos_T - pos_P &lt;= <span class="number">1</span> ||</span><br><span class="line">       <span class="comment">//字符串中只能有一个P，T字符,多出就不符合条件</span></span><br><span class="line">       count_P &gt; <span class="number">1</span> || count_T &gt; <span class="number">1</span> ||    </span><br><span class="line">           <span class="comment">//T右边的字符数是P左边的整数倍，倍数是和中间添加的A的数量和P左边的字符数量有关，条件3</span></span><br><span class="line">           pos_P*(pos_T - pos_P - <span class="number">1</span>) != <span class="built_in">strlen</span>(Input) - pos_T - <span class="number">1</span></span><br><span class="line">     )&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"NO\n"</span>);</span><br><span class="line">     &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"YES\n"</span>);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;code&gt;答案正确&lt;/code&gt;是自动判题系统给出的最令人欢喜的回复。本题属于PAT的&lt;code&gt;答案正确&lt;/code&gt;大派送 —— 只要读入的字符串满足下列条件，系统就输出&lt;code&gt;答案正确&lt;/code&gt;，否则输出&lt;code&gt;答案错误&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;得到“答案正确”的条件是：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;字符串中必须仅有P, A, T这三种字符，不可以包含其它字符；&lt;/li&gt;
-&lt;li&gt;任意形如 xPATx 的字符串都可以获&lt;code&gt;答案正确&lt;/code&gt;，其中 x 或者是空字符串，或者是仅由字母 A 组成的字符串；&lt;/li&gt;
-&lt;li&gt;如果 aPbTc 是正确的，那么 aPbATca 也是正确的，其中 a, b, c 均或者是空字符串，或者是仅由字母 A 组成的字符串。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;现在就请你为PAT写一个自动裁判程序，判定哪些字符串是可以获得&lt;code&gt;答案正确&lt;/code&gt;的。&lt;/p&gt;
     
     </summary>
     
