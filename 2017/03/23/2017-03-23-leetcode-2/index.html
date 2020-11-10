@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode," />
+  <meta name="keywords" content="LeetCode,LeetCode-Medium," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return i">
-<meta name="keywords" content="LeetCode">
+<meta name="keywords" content="LeetCode,LeetCode-Medium">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 2. Add Two Numbers">
 <meta property="og:url" content="https://lrtwjhs.github.io/2017/03/23/2017-03-23-leetcode-2/index.html">
 <meta property="og:site_name" content="Lrtwjhs&#39;s Blog">
 <meta property="og:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-13T01:39:35.000Z">
+<meta property="og:updated_time" content="2020-11-10T12:10:05.499Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 2. Add Two Numbers">
 <meta name="twitter:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return i">
@@ -389,9 +389,9 @@
 <a id="more"></a>
 <p><strong>Input:</strong> (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</p>
 <p><strong>Output:</strong> 7 -&gt; 0 -&gt; 8</p>
-<p><br></p>
-<p><strong>Solution:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode r = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode h = r;</span><br><span class="line">        ListNode beforeend = r;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> &amp;&amp; l2!= <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += l1.val + l2.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode rest;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) rest = l2; <span class="keyword">else</span> rest =l1;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(rest != <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += rest.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            rest = rest.nest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(beforeend.next != <span class="keyword">null</span> &amp;&amp; beforeend.next.val == <span class="number">0</span>) beforeend.next=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>思路:</strong><br>将长度较短的链表在末尾补零使得两个连表长度相等，再一个一个元素对其相加（考虑进位）<br>1.获取两个链表所对应的长度<br>2.在较短的链表末尾补零<br>3.对齐相加考虑进位</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode r = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode h = r;</span><br><span class="line">        ListNode beforeend = r;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="keyword">null</span> &amp;&amp; l2!= <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += l1.val + l2.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            l1 = l1.next;</span><br><span class="line">            l2 = l2.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        ListNode rest;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="keyword">null</span>) rest = l2; <span class="keyword">else</span> rest =l1;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(rest != <span class="keyword">null</span>)&#123;</span><br><span class="line">            r.val += rest.val;</span><br><span class="line"></span><br><span class="line">            r.next = <span class="keyword">new</span> ListNode(r.val / <span class="number">10</span>);</span><br><span class="line">            r.val %= <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">            beforeend = r;</span><br><span class="line">            r = r.next;</span><br><span class="line">            rest = rest.nest;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(beforeend.next != <span class="keyword">null</span> &amp;&amp; beforeend.next.val == <span class="number">0</span>) beforeend.next=<span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -410,6 +410,8 @@
           
             <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
+            <a href="/tags/LeetCode-Medium/" rel="tag"># LeetCode-Medium</a>
+          
         </div>
       
 
@@ -421,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/23/2017-03-23-pat-basic-1012/" rel="next" title="PAT-Basic 1012. 数字分类 (25)">
-                <i class="fa fa-chevron-left"></i> PAT-Basic 1012. 数字分类 (25)
+              <a href="/2017/03/23/2017-03-23-pat-basic-1011/" rel="next" title="PAT-Basic 1011. A+B和C (15)">
+                <i class="fa fa-chevron-left"></i> PAT-Basic 1011. A+B和C (15)
               </a>
             
           </div>
@@ -431,8 +433,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/17/2017-08-17-javascript-datatype/" rel="prev" title="JavaScript学习笔记（一）之 数据类型详解">
-                JavaScript学习笔记（一）之 数据类型详解 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/17/2017-08-17-offline-api-document/" rel="prev" title="推荐两款很安逸的离线API文档查询工具Dash和Zeal">
+                推荐两款很安逸的离线API文档查询工具Dash和Zeal <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

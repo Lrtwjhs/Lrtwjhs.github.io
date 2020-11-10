@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="LeetCode  LeetCode-Easy," />
+  <meta name="keywords" content="LeetCode,LeetCode-Easy," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta name="description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution.">
-<meta name="keywords" content="LeetCode  LeetCode-Easy">
+<meta name="keywords" content="LeetCode,LeetCode-Easy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LeetCode 1. Two Sum">
 <meta property="og:url" content="https://lrtwjhs.github.io/2016/08/05/2016-08-05-leetcode-1/index.html">
 <meta property="og:site_name" content="Lrtwjhs&#39;s Blog">
 <meta property="og:description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-11-07T04:57:46.487Z">
+<meta property="og:updated_time" content="2020-11-10T12:10:08.773Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LeetCode 1. Two Sum">
 <meta name="twitter:description" content="Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution.">
@@ -389,7 +389,6 @@
 <a id="more"></a>
 <p><strong>Example:</strong><br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Given nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>], target = <span class="number">9</span>,</span><br><span class="line"></span><br><span class="line">Because nums[<span class="number">0</span>] + nums[<span class="number">1</span>] = <span class="number">2</span> + <span class="number">7</span> = <span class="number">9</span>,</span><br><span class="line"><span class="keyword">return</span> [<span class="number">0</span>, <span class="number">1</span>].</span><br></pre></td></tr></table></figure></p>
 <p><strong>思路:</strong><br>假设每个输入都只有一个解决方案，先新建一个Map集合，先循环一遍nums数组，以target - nums[i]为key，以索引i为value，<br>放入Map中；然后再循环一遍nums数组，以nums[i]为key，取出v，如果v存在且不等与i，则代表找到了匹配值，返回唯一解int[]{i, v}。</p>
-<p><br></p>
 <p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line"></span><br><span class="line">        Map&lt;Integer, Integer&gt; m = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            m.put(target - nums[i], i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line"></span><br><span class="line">            Integer v = m.get(nums[i]);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(v != <span class="keyword">null</span> &amp;&amp; v != i)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;i, v&#125;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
@@ -408,7 +407,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/LeetCode-LeetCode-Easy/" rel="tag"># LeetCode  LeetCode-Easy</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/LeetCode-Easy/" rel="tag"># LeetCode-Easy</a>
           
         </div>
       
@@ -421,8 +422,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/05/2016-08-05-pat-basic-1008/" rel="next" title="PAT-Basic 1008. 数组元素循环右移问题 (20)">
-                <i class="fa fa-chevron-left"></i> PAT-Basic 1008. 数组元素循环右移问题 (20)
+              <a href="/2016/08/05/2016-08-05-pat-basic-1009/" rel="next" title="PAT-Basic 1009. 说反话 (20)">
+                <i class="fa fa-chevron-left"></i> PAT-Basic 1009. 说反话 (20)
               </a>
             
           </div>
@@ -431,8 +432,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/23/2017-03-23-pat-basic-1011/" rel="prev" title="PAT-Basic 1011. A+B和C (15)">
-                PAT-Basic 1011. A+B和C (15) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/23/2017-03-23-pat-basic-1012/" rel="prev" title="PAT-Basic 1012. 数字分类 (25)">
+                PAT-Basic 1012. 数字分类 (25) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -534,7 +535,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
