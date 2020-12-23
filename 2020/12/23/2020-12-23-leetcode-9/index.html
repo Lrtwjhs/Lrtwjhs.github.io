@@ -84,14 +84,14 @@
 <meta name="description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Follow up: Could you solve it without converting the integer to a string?">
 <meta name="keywords" content="LeetCode,LeetCode-Easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 9. alindrome Number">
+<meta property="og:title" content="LeetCode 9. Palindrome Number">
 <meta property="og:url" content="https://lrtwjhs.github.io/2020/12/23/2020-12-23-leetcode-9/index.html">
 <meta property="og:site_name" content="Lrtwjhs&#39;s Blog">
 <meta property="og:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Follow up: Could you solve it without converting the integer to a string?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-23T13:21:58.848Z">
+<meta property="og:updated_time" content="2020-12-23T15:12:53.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 9. alindrome Number">
+<meta name="twitter:title" content="LeetCode 9. Palindrome Number">
 <meta name="twitter:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Follow up: Could you solve it without converting the integer to a string?">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>LeetCode 9. alindrome Number | Lrtwjhs's Blog</title>
+  <title>LeetCode 9. Palindrome Number | Lrtwjhs's Blog</title>
   
 
 
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 9. alindrome Number</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode 9. Palindrome Number</h1>
         
 
         <div class="post-meta">
@@ -393,7 +393,7 @@
 <p><strong>Example 4:</strong><br>Input: x = -101<br>Output: false</p>
 <p><strong>Constraints:</strong><br>-2^31 &lt;= x &lt;= 2^31 - 1</p>
 <p><strong>思路:</strong><br>要验证回文数，那么就需要看前后半段是否对称，如果把后半段翻转一下，就看和前半段是否相等就行了，所以做法就是取出后半段数字，进行翻转。</p>
-<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> revertNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertNum) &#123;</span><br><span class="line">            revertNum = revertNum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x == revertNum || x == revertNum / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> revertNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertNum) &#123;</span><br><span class="line">            revertNum = revertNum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x == revertNum || x == revertNum / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -435,6 +435,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/12/23/2020-12-23-leetcode-13/" rel="prev" title="LeetCode 13. Roman to Integer">
+                LeetCode 13. Roman to Integer <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -513,7 +517,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -719,7 +723,7 @@
         var disqus_config = function () {
           this.page.url = 'https://lrtwjhs.github.io/2020/12/23/2020-12-23-leetcode-9/';
           this.page.identifier = '2020/12/23/2020-12-23-leetcode-9/';
-          this.page.title = 'LeetCode 9. alindrome Number';
+          this.page.title = 'LeetCode 9. Palindrome Number';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lrtwjhs.disqus.com/embed.js';
