@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PAT-Basic," />
+  <meta name="keywords" content="LeetCode,LeetCode-Easy," />
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。">
-<meta name="keywords" content="PAT-Basic">
+<meta name="description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Follow up: Could you solve it without converting the integer to a string?">
+<meta name="keywords" content="LeetCode,LeetCode-Easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-Basic 1011. A+B和C (15)">
-<meta property="og:url" content="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/index.html">
+<meta property="og:title" content="LeetCode 9. alindrome Number">
+<meta property="og:url" content="https://lrtwjhs.github.io/2020/12/23/2020-12-23-leetcode-9/index.html">
 <meta property="og:site_name" content="Lrtwjhs&#39;s Blog">
-<meta property="og:description" content="给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。">
+<meta property="og:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Follow up: Could you solve it without converting the integer to a string?">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-13T01:39:44.000Z">
+<meta property="og:updated_time" content="2020-12-23T13:21:58.848Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT-Basic 1011. A+B和C (15)">
-<meta name="twitter:description" content="给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。">
+<meta name="twitter:title" content="LeetCode 9. alindrome Number">
+<meta name="twitter:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward. Follow up: Could you solve it without converting the integer to a string?">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/"/>
+  <link rel="canonical" href="https://lrtwjhs.github.io/2020/12/23/2020-12-23-leetcode-9/"/>
 
 
 
 
 
-  <title>PAT-Basic 1011. A+B和C (15) | Lrtwjhs's Blog</title>
+  <title>LeetCode 9. alindrome Number | Lrtwjhs's Blog</title>
   
 
 
@@ -284,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/">
+    <link itemprop="mainEntityOfPage" href="https://lrtwjhs.github.io/2020/12/23/2020-12-23-leetcode-9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rutao Li">
@@ -301,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PAT-Basic 1011. A+B和C (15)</h1>
+          <h1 class="post-title" itemprop="name headline">LeetCode 9. alindrome Number</h1>
         
 
         <div class="post-meta">
@@ -313,8 +313,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-23T00:00:00+08:00">
-                2017-03-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-23T00:00:00+08:00">
+                2020-12-23
               </time>
             
 
@@ -354,9 +354,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/23/2017-03-23-pat-basic-1011/#comments" itemprop="discussionUrl">
+                <a href="/2020/12/23/2020-12-23-leetcode-9/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/03/23/2017-03-23-pat-basic-1011/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2020/12/23/2020-12-23-leetcode-9/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -384,17 +384,17 @@
       
 
       
-        <p>给定区间[-2^31, 2^31]内的3个整数A、B和C，请判断A+B是否大于C。</p>
+        <p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p>Follow up: Could you solve it without converting the integer to a string?</p>
 <a id="more"></a>
-<p><strong>输入格式：</strong></p>
-<p>输入第1行给出正整数T(&lt;=10)，是测试用例的个数。随后给出T组测试用例，每组占一行，顺序给出A、B和C。整数间以空格分隔。</p>
-<p><strong>输出格式：</strong></p>
-<p>对每组测试用例，在一行中输出“Case #X: true”如果A+B&gt;C，否则输出“Case #X: false”，其中X是测试用例的编号（从1开始）。</p>
-<p><strong>输入样例：</strong></p>
-<p>4<br><br>1 2 3<br><br>2 3 4<br><br>2147483647 0 2147483646<br><br>0 -2147483648 -2147483647<br></p>
-<p><strong>输出样例：</strong></p>
-<p>Case #1: false<br><br>Case #2: true<br><br>Case #3: true<br><br>Case #4: false<br></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> i,n;</span><br><span class="line">  <span class="keyword">long</span> a,b,c;</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%ld%ld%ld"</span>,&amp;a,&amp;b,&amp;c);</span><br><span class="line">    <span class="keyword">if</span>(a+b&gt;c)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: true\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: false\n"</span>,i+<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>Example 1:</strong><br>Input: x = 121<br>Output: true</p>
+<p><strong>Example 2:</strong><br>Input: x = -121<br>Output: false<br>Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</p>
+<p><strong>Example 3:</strong><br>Input: x = 10<br>Output: false<br>Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</p>
+<p><strong>Example 4:</strong><br>Input: x = -101<br>Output: false</p>
+<p><strong>Constraints:</strong><br>-2^31 &lt;= x &lt;= 2^31 - 1</p>
+<p><strong>思路:</strong><br>要验证回文数，那么就需要看前后半段是否对称，如果把后半段翻转一下，就看和前半段是否相等就行了，所以做法就是取出后半段数字，进行翻转。</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span> || (x % <span class="number">10</span> == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">int</span> revertNum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x &gt; revertNum) &#123;</span><br><span class="line">            revertNum = revertNum * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> x == revertNum || x == revertNum / <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -411,7 +411,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PAT-Basic/" rel="tag"># PAT-Basic</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/LeetCode-Easy/" rel="tag"># LeetCode-Easy</a>
           
         </div>
       
@@ -424,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/23/2017-03-23-leetcode-2/" rel="next" title="LeetCode 2. Add Two Numbers">
-                <i class="fa fa-chevron-left"></i> LeetCode 2. Add Two Numbers
+              <a href="/2020/11/10/2020-11-10-leetcode-7/" rel="next" title="LeetCode 7. Reverse Integer">
+                <i class="fa fa-chevron-left"></i> LeetCode 7. Reverse Integer
               </a>
             
           </div>
@@ -433,10 +435,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/23/2017-03-23-pat-basic-1010/" rel="prev" title="PAT-Basic 1010. 一元多项式求导 (25)">
-                PAT-Basic 1010. 一元多项式求导 (25) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -719,9 +717,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://lrtwjhs.github.io/2017/03/23/2017-03-23-pat-basic-1011/';
-          this.page.identifier = '2017/03/23/2017-03-23-pat-basic-1011/';
-          this.page.title = 'PAT-Basic 1011. A+B和C (15)';
+          this.page.url = 'https://lrtwjhs.github.io/2020/12/23/2020-12-23-leetcode-9/';
+          this.page.identifier = '2020/12/23/2020-12-23-leetcode-9/';
+          this.page.title = 'LeetCode 9. alindrome Number';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lrtwjhs.disqus.com/embed.js';
