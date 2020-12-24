@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="LeetCode,LeetCode-Easy," />
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="要么旅行,要么读书,身体和灵魂总要一个在路上.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类">
-<meta property="og:url" content="https://lrtwjhs.github.io/categories/index.html">
+<meta name="description" content="题目链接:https://leetcode.com/problems/valid-parentheses/ 思路:用一个栈，开始遍历输入字符串，如果当前字符为左半边括号时，则将其压入栈中，如果遇到右半边括号时，若此时栈为空，则直接返回 false，如不为空，则取出栈顶元素，若为对应的左半边括号，则继续循环，反之返回 false。 Solution:1234567891011121314151617">
+<meta name="keywords" content="LeetCode,LeetCode-Easy">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 20. Valid Parentheses">
+<meta property="og:url" content="https://lrtwjhs.github.io/2020/12/24/2020-12-24-leetcode-20/index.html">
 <meta property="og:site_name" content="Lrtwjhs&#39;s Blog">
-<meta property="og:description" content="要么旅行,要么读书,身体和灵魂总要一个在路上.">
+<meta property="og:description" content="题目链接:https://leetcode.com/problems/valid-parentheses/ 思路:用一个栈，开始遍历输入字符串，如果当前字符为左半边括号时，则将其压入栈中，如果遇到右半边括号时，若此时栈为空，则直接返回 false，如不为空，则取出栈顶元素，若为对应的左半边括号，则继续循环，反之返回 false。 Solution:1234567891011121314151617">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-27T12:28:22.000Z">
+<meta property="og:updated_time" content="2020-12-24T14:06:31.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
-<meta name="twitter:description" content="要么旅行,要么读书,身体和灵魂总要一个在路上.">
+<meta name="twitter:title" content="LeetCode 20. Valid Parentheses">
+<meta name="twitter:description" content="题目链接:https://leetcode.com/problems/valid-parentheses/ 思路:用一个栈，开始遍历输入字符串，如果当前字符为左半边括号时，则将其压入栈中，如果遇到右半边括号时，若此时栈为空，则直接返回 false，如不为空，则取出栈顶元素，若为对应的左半边括号，则继续循环，反之返回 false。 Solution:1234567891011121314151617">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://lrtwjhs.github.io/categories/"/>
+  <link rel="canonical" href="https://lrtwjhs.github.io/2020/12/24/2020-12-24-leetcode-20/"/>
 
 
 
 
 
-  <title>分类 | Lrtwjhs's Blog</title>
+  <title>LeetCode 20. Valid Parentheses | Lrtwjhs's Blog</title>
   
 
 
@@ -271,40 +272,181 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lrtwjhs.github.io/2020/12/24/2020-12-24-leetcode-20/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rutao Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lrtwjhs's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 5 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript学习笔记/">JavaScript学习笔记</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/协议/">协议</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/操作系统/">操作系统</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">20</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">LeetCode 20. Valid Parentheses</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-24T00:00:00+08:00">
+                2020-12-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/12/24/2020-12-24-leetcode-20/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2020/12/24/2020-12-24-leetcode-20/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><strong>题目链接:</strong><br><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank" rel="external">https://leetcode.com/problems/valid-parentheses/</a></p>
+<p><strong>思路:</strong><br>用一个栈，开始遍历输入字符串，如果当前字符为左半边括号时，则将其压入栈中，如果遇到右半边括号时，若此时栈为空，则直接返回 false，如不为空，则取出栈顶元素，若为对应的左半边括号，则继续循环，反之返回 false。</p>
+<p><strong>Solution:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> ch = s.charAt(i);</span><br><span class="line">            <span class="comment">// 如果是左括号，则入栈</span></span><br><span class="line">            <span class="keyword">if</span> (ch == <span class="string">'('</span> || ch == <span class="string">'['</span> || ch == <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                stack.push(ch);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123; <span class="comment">// 如果是右括号，则比较其与栈顶元素是否配对</span></span><br><span class="line">                <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">')'</span> &amp;&amp; stack.peek() != <span class="string">'('</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">']'</span> &amp;&amp; stack.peek() != <span class="string">'['</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ch == <span class="string">'&#125;'</span> &amp;&amp; stack.peek() != <span class="string">'&#123;'</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                stack.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 最后栈为空则表示完全匹配完毕</span></span><br><span class="line">        <span class="keyword">return</span> stack.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/LeetCode-Easy/" rel="tag"># LeetCode-Easy</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/12/24/2020-12-24-leetcode-14/" rel="next" title="LeetCode 14. Longest Common Prefix">
+                <i class="fa fa-chevron-left"></i> LeetCode 14. Longest Common Prefix
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -568,9 +710,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://lrtwjhs.github.io/categories/index.html';
-          this.page.identifier = 'categories/index.html';
-          this.page.title = '分类';
+          this.page.url = 'https://lrtwjhs.github.io/2020/12/24/2020-12-24-leetcode-20/';
+          this.page.identifier = '2020/12/24/2020-12-24-leetcode-20/';
+          this.page.title = 'LeetCode 20. Valid Parentheses';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lrtwjhs.disqus.com/embed.js';
