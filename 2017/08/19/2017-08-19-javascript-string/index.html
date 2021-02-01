@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端开发," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lrtwjhs's Blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="String 类型用于表示由零或多个 16 位 Unicode 字符组成的字符序列，即字符串 。 1. 关于 Unicode由于计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。在计算机中，1个字节（byte）由 8个比特（bit）组成，所以 1 个字节能表示的最大整数就是 255（28 个），如果想表示更大整数，就必须用更多的字节，比如 2 个字节可以表示的最大整数为 655">
+<meta name="keywords" content="前端开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript学习笔记（三）之 Srting操作方法">
+<meta property="og:url" content="https://lrtwjhs.github.io/2017/08/19/2017-08-19-javascript-string/index.html">
+<meta property="og:site_name" content="Lrtwjhs&#39;s Blog">
+<meta property="og:description" content="String 类型用于表示由零或多个 16 位 Unicode 字符组成的字符序列，即字符串 。 1. 关于 Unicode由于计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。在计算机中，1个字节（byte）由 8个比特（bit）组成，所以 1 个字节能表示的最大整数就是 255（28 个），如果想表示更大整数，就必须用更多的字节，比如 2 个字节可以表示的最大整数为 655">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-02-01T12:48:20.583Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript学习笔记（三）之 Srting操作方法">
+<meta name="twitter:description" content="String 类型用于表示由零或多个 16 位 Unicode 字符组成的字符序列，即字符串 。 1. 关于 Unicode由于计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。在计算机中，1个字节（byte）由 8个比特（bit）组成，所以 1 个字节能表示的最大整数就是 255（28 个），如果想表示更大整数，就必须用更多的字节，比如 2 个字节可以表示的最大整数为 655">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '63AK5731QI',
+      apiKey: '9228d5feac7c65dbca585e43dee5c0f1',
+      indexName: 'LrtwjhsBlog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://lrtwjhs.github.io/2017/08/19/2017-08-19-javascript-string/"/>
+
+
+
+
+
+  <title>JavaScript学习笔记（三）之 Srting操作方法 | Lrtwjhs's Blog</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-73438031-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Lrtwjhs's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-projects">
+          <a href="/projects/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heart"></i> <br />
+            
+            项目
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lrtwjhs.github.io/2017/08/19/2017-08-19-javascript-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rutao Li">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lrtwjhs's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript学习笔记（三）之 Srting操作方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T00:00:00+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JavaScript学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">JavaScript学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/19/2017-08-19-javascript-string/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/19/2017-08-19-javascript-string/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>String 类型用于表示由零或多个 16 位 Unicode 字符组成的字符序列，即字符串 。</p>
+<h3 id="1-关于-Unicode"><a href="#1-关于-Unicode" class="headerlink" title="1. 关于 Unicode"></a>1. 关于 Unicode</h3><p>由于计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。在计算机中，1个字节（byte）由 8个比特（bit）组成，所以 1 个字节能表示的最大整数就是 255（28 个），如果想表示更大整数，就必须用更多的字节，比如 2 个字节可以表示的最大整数为 65535 ，即 216  个。</p>
+<a id="more"></a>
+<p>最早只有 127 个字符被编码到计算机里，也就是大小写英文字母、数字和一些符号，这个编码表被称为 ASCII 编码，比如大写字母 A 的编码是 65，小写字母 z 的编码是122。但如果要处理中文字符，显然一个字节是不够的，至少需要两个字节，所以，中国制定了GB2312 编码，用来把中文编进去。同样，其他国家的语言也会存在这个问题，因此，各国都制定了自己特有的编码规范。这样存在的问题是，在多语言混合的文本中，不同的编码会出现冲突，导致乱码出现。</p>
+<p>如果想要解决这个问题，就需要制定一种通用的编码，能把所有语言都统一到一套编码里，统一进行管理，这种编码就是 Unicode 编码 。Unicode 通常用 2 个字节来表示独一无二的字符， 如果要用到非常偏僻的字符，就需要 4 个字节 。</p>
+<p>因此，JavaScript 中的字符采用 16 位的 Unicode 编码来表示，也就是说，英文字符和中文字符都会占 2 个字节的空间大小。</p>
+<h3 id="2-常用操作方法"><a href="#2-常用操作方法" class="headerlink" title="2. 常用操作方法"></a>2. 常用操作方法</h3><p>作为字符串的基本包装对象，String 提供了以下几类方法来操作字符串：</p>
+<p><strong><em>[1] 字符操作：charAt 、charCodeAt、fromCharCode</em></strong></p>
+<p>charAt 用于获取指定位置上的字符，chatCodeAt 则是获取指定位置字符的 Unicode 编码（10进制表示），fromCharCode 是 String 上的一个静态方法，通过Unicode 获取对应的字符。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">'abc'</span>;</span><br><span class="line">str.charAt(<span class="number">1</span>); <span class="comment">// b</span></span><br><span class="line">str.charCodeAt(<span class="number">1</span>); <span class="comment">// 98</span></span><br><span class="line"><span class="built_in">String</span>.fromCharCode(<span class="number">98</span>); <span class="comment">// a</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>[2] 字符串提取：substr、substring 、slice</em></strong></p>
+<p>这三个方法都可以对原字符串按位置进行提取，并返回一个新的字符串 。 其用法如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringValue = <span class="string">"hello world"</span>;</span><br><span class="line">stringValue.slice(<span class="number">3</span>); <span class="comment">//"lo world"</span></span><br><span class="line">stringValue.substring(<span class="number">3</span>); <span class="comment">//"lo world"</span></span><br><span class="line">stringValue.substr(<span class="number">3</span>); <span class="comment">//"lo world"</span></span><br><span class="line">stringValue.slice(<span class="number">3</span>, <span class="number">7</span>); <span class="comment">//"lo w"</span></span><br><span class="line">stringValue.substring(<span class="number">3</span>,<span class="number">7</span>); <span class="comment">//"lo w"</span></span><br><span class="line">stringValue.substr(<span class="number">3</span>, <span class="number">7</span>); <span class="comment">//"lo worl"</span></span><br></pre></td></tr></table></figure>
+<p>如果传递的参数为负值，它们的表现会不尽相同：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringValue = <span class="string">"hello world"</span>;</span><br><span class="line">stringValue.slice(<span class="number">-3</span>); <span class="comment">//"rld"</span></span><br><span class="line">stringValue.substring(<span class="number">-3</span>); <span class="comment">//"hello world"</span></span><br><span class="line">stringValue.substr(<span class="number">-3</span>); <span class="comment">//"rld"</span></span><br><span class="line">stringValue.slice(<span class="number">3</span>, <span class="number">-4</span>); <span class="comment">//"lo w"</span></span><br><span class="line">stringValue.substring(<span class="number">3</span>, <span class="number">-4</span>); <span class="comment">//"hel"</span></span><br><span class="line">stringValue.substr(<span class="number">3</span>, <span class="number">-4</span>); <span class="comment">//""（空字符串）</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>[3] 位置索引：indexOf 、lastIndexOf</em></strong></p>
+<p>indexOf() 方法从字符串的开头向后搜索子字符串，而 lastIndexOf() 方法是从字符串的末尾向前搜索子字符串。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringValue = <span class="string">"hello world"</span>;</span><br><span class="line">stringValue.indexOf(<span class="string">"o"</span>); <span class="comment">//4</span></span><br><span class="line">stringValue.lastIndexOf(<span class="string">"o"</span>); <span class="comment">//7</span></span><br></pre></td></tr></table></figure>
+<p>这两个方法都可以接收可选的第二个参数，表示从字符串中的哪个位置开始搜索。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringValue = <span class="string">"hello world"</span>;</span><br><span class="line">stringValue.indexOf(<span class="string">"o"</span>, <span class="number">6</span>); <span class="comment">//7</span></span><br><span class="line">stringValue.lastIndexOf(<span class="string">"o"</span>, <span class="number">6</span>); <span class="comment">//4</span></span><br></pre></td></tr></table></figure>
+<p><strong><em>[4] 大小写转换：toLowerCase、toUpperCase</em></strong></p>
+<p>ECMAScript 中涉及字符串大小写转换的方法有4 个：toLowerCase()、toLocaleLowerCase()、toUpperCase() 和 toLocaleUpperCase()。其中，toLowerCase() 和 toUpperCase() 是两个经典的方法，借鉴自java.lang.String 中的同名方法。而 toLocaleLowerCase() 和toLocaleUpperCase() 方法则是针对特定地区的实现。对有些地区来说，针对地区的方法与其通用方法得到的结果相同，但少数语言（如土耳其语）会为 Unicode 大小写转换应用特殊的规则，这时候就必须使用针对地区的方法来保证实现正确的转换。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> stringValue = <span class="string">"hello world"</span>;</span><br><span class="line">stringValue.toLocaleUpperCase(); <span class="comment">//"HELLO WORLD"</span></span><br><span class="line">stringValue.toUpperCase(); <span class="comment">//"HELLO WORLD"</span></span><br><span class="line">stringValue.toLocaleLowerCase(); <span class="comment">//"hello world"</span></span><br><span class="line">stringValue.toLowerCase(); <span class="comment">//"hello world"</span></span><br></pre></td></tr></table></figure>
+<p>一般来说，在不知道自己的代码将在哪种语言环境中运行的情况下，还是使用针对地区的方法更稳妥一些。</p>
+<p><strong><em>[5] 模拟匹配：match、search、replace、split</em></strong></p>
+<p>match() 本质上与调用 RegExp 的 exec()方法相同。match() 方法只接受一个参数，要么是一个正则表达式，要么是一个 RegExp 对象。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">"cat, bat, sat, fat"</span>;</span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/.at/</span>;</span><br><span class="line"><span class="comment">//与pattern.exec(text)相同</span></span><br><span class="line"><span class="keyword">var</span> matches = text.match(pattern);</span><br><span class="line">alert(matches.index); <span class="comment">//0</span></span><br><span class="line">alert(matches[<span class="number">0</span>]); <span class="comment">//"cat"</span></span><br><span class="line">alert(pattern.lastIndex); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+<p>本例中的 match() 方法返回了一个数组；如果是调用RegExp 对象的 exec()方法并传递本例中的字符串作为参数，那么也会得到与此相同的数组：数组的第一项是与整个模式匹配的字符串，之后的每一项（如果有）保存着与正则表达式中的捕获组匹配的字符串。</p>
+<p>search() 的唯一参数与 match() 方法的参数相同：由字符串或 RegExp 对象指定的一个正则表达式。search() 方法返回字符串中第一个匹配项的索引；如果没有找到匹配项，则返回-1。而且，search() 方法始终是从字符串开头向后查找模式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">"cat, bat, sat, fat"</span>;</span><br><span class="line"><span class="keyword">var</span> pos = text.search(<span class="regexp">/at/</span>);</span><br><span class="line">aler t(pos); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<p>replace() 接受两个参数：第一个参数可以是一个RegExp 对象或者一个字符串（这个字符串不会被转换成正则表达式），第二个参数可以是一个字符串或者一个函数。如果第一个参数是字符串，那么只会替换第一个子字符串。要想替换所有子字符串，唯一的办法就是提供一个正则表达式，而且要指定全局（g）标志。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> text = <span class="string">"cat, bat, sat, fat"</span>;</span><br><span class="line"><span class="keyword">var</span> result = text.replace(<span class="string">"at"</span>, <span class="string">"ond"</span>);</span><br><span class="line">alert(result); <span class="comment">//"cond, bat, sat, fat"</span></span><br><span class="line">result = text.replace(<span class="regexp">/at/g</span>, <span class="string">"ond"</span>);</span><br><span class="line">aler t(result); <span class="comment">//"cond, bond, sond, fond"</span></span><br></pre></td></tr></table></figure>
+<p>replace() 方法的第二个参数也可以是一个函数。在只有一个匹配项（即与模式匹配的字符串）的情况下，会向这个函数传递3 个参数：模式的匹配项、模式匹配项在字符串中的位置和原始字符串。在正则表达式中定义了多个捕获组的情况下，传递给函数的参数依次是模式的匹配项、第一个捕获组的匹配项、第二个捕获组的匹配项……，但最后两个参数仍然分别是模式的匹配项在字符串中的位置和原始字符串。这个函数应该返回一个字符串，表示应该被替换的匹配项使用函数作为replace()方法的第二个参数可以实现更加精细的替换操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">htmlEscape</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> text.replace(<span class="regexp">/[&lt;&gt;"&amp;]/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">match, pos, originalText</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (match) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"&lt;"</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&lt;"</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"&gt;"</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&gt;"</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"&amp;"</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"&amp;"</span>;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">"\""</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span><span class="string">";</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;);</span></span><br><span class="line"><span class="string">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>split() 可以基于指定的分隔符将一个字符串分割成多个子字符串，并将结果放在一个数组中。分隔符可以是字符串，也可以是一个RegExp 对象（这个方法不会将字符串看成正则表达式）。split()方法可以接受可选的第二个参数，用于指定数组的大小，以便确保返回的数组不会超过既定大小。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colorText = <span class="string">"red,blue,green,yellow"</span>;</span><br><span class="line"><span class="keyword">var</span> colors1 = colorText.split(<span class="string">","</span>); <span class="comment">//["red", "blue", "green", "yellow"]</span></span><br><span class="line"><span class="keyword">var</span> colors2 = colorText.split(<span class="string">","</span>, <span class="number">2</span>); <span class="comment">//["red", "blue"]</span></span><br><span class="line"><span class="keyword">var</span> colors3 = colorText.split(<span class="regexp">/[^\,]+/</span>); <span class="comment">//["", ",", ",", ",", ""]</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/2017-08-18-javascript-determine-datatype/" rel="next" title="JavaScript学习笔记（二）之 判断数据类型的四种方法">
+                <i class="fa fa-chevron-left"></i> JavaScript学习笔记（二）之 判断数据类型的四种方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/02/2018-09-02-mac-bogon-solution/" rel="prev" title="Mac 终端里神秘的 bogon 及解决方法">
+                Mac 终端里神秘的 bogon 及解决方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpeg"
+                alt="Rutao Li" />
+            
+              <p class="site-author-name" itemprop="name">Rutao Li</p>
+              <p class="site-description motion-element" itemprop="description">要么旅行,要么读书,身体和灵魂总要一个在路上.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-关于-Unicode"><span class="nav-number">1.</span> <span class="nav-text">1. 关于 Unicode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用操作方法"><span class="nav-number">2.</span> <span class="nav-text">2. 常用操作方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2015 &mdash; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rutao Li</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://Lrtwjhs.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://lrtwjhs.github.io/2017/08/19/2017-08-19-javascript-string/';
+          this.page.identifier = '2017/08/19/2017-08-19-javascript-string/';
+          this.page.title = 'JavaScript学习笔记（三）之 Srting操作方法';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Lrtwjhs.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
